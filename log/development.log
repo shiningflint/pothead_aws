@@ -6481,3 +6481,309 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 140ms (Views: 125.0ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-03-09 11:56:58 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mPotion Load (1.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 20]]
+  Rendered home/index.html.erb within layouts/application (297.9ms)
+Completed 200 OK in 461ms (Views: 423.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/potions/love-potion" for ::1 at 2017-03-09 11:57:17 +0900
+Processing by PotionsController#show as HTML
+  Parameters: {"param"=>:pot_slug, "pot_slug"=>"love-potion"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "love-potion"], ["LIMIT", 1]]
+  Rendering potions/show.html.erb within layouts/application
+  Rendered potions/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 123ms (Views: 98.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions/new" for ::1 at 2017-03-09 11:57:21 +0900
+Processing by PotionsController#new as HTML
+  Rendering potions/new.html.erb within layouts/application
+  Rendered potions/new.html.erb within layouts/application (162.9ms)
+Completed 200 OK in 300ms (Views: 280.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-09 11:57:22 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered potions/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 133ms (Views: 114.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions/mp-potion/edit" for ::1 at 2017-03-09 11:57:29 +0900
+Processing by PotionsController#edit as HTML
+  Parameters: {"id"=>"mp-potion"}
+  [1m[36mPotion Load (1.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Potion with 'id'=mp-potion):
+  
+app/controllers/potions_controller.rb:13:in `edit'
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1286.0ms)
+Started GET "/admin/potions/haste-potion/edit" for ::1 at 2017-03-09 11:58:33 +0900
+Processing by PotionsController#edit as HTML
+  Parameters: {"id"=>"haste-potion"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering potions/edit.html.erb within layouts/application
+  Rendered potions/edit.html.erb within layouts/application (9.1ms)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `pot_name' for nil:NilClass):
+    1: <div class="body-wrap">
+    2: 	<div class="tl-wrap">
+    3: 		<h1 class="tl-title">Edit <%= @potion.pot_name %></h1>
+    4: 		<p class="tl-new"><%= link_to 'Potion admin panel', potions_path %></p>
+    5: 		<div class="npe-wrap">
+    6: 			<%= form_for :potion, url: potion_path(@potion), method: :patch do |f| %>
+  
+app/views/potions/edit.html.erb:3:in `_app_views_potions_edit_html_erb___1216663122_96321880'
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1308.8ms)
+Started GET "/admin/potions/love-poison/edit" for ::1 at 2017-03-09 11:59:57 +0900
+Processing by PotionsController#edit as HTML
+  Parameters: {"id"=>"love-poison"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "love-poison"], ["LIMIT", 1]]
+  Rendering potions/edit.html.erb within layouts/application
+  Rendered potions/edit.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 147ms (Views: 118.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/admin/potions/love-poison" for ::1 at 2017-03-09 12:00:07 +0900
+Processing by PotionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q1Bc0yAP61tKo8kHiH2mLcXMuhCj4g37Gi6wS9Ij6y3s/qE38knvGKlhfxPQg68Sd/RYxboIhEvK3pKA+qhQMA==", "potion"=>{"pot_name"=>"Love Poison", "pot_slug"=>"love-poison", "pot_desc"=>"An expired Love Potion. It will have the exact opposite effect upon consuming. Whoever drinks it will faint for a couple of minutes, wakes up and the first object/person seen will be hated for life. Make sure there are no mirrors in present", "pot_img"=>"potion8.svg", "pot_creator"=>"Cupid Hater"}, "commit"=>"Save Potion", "id"=>"love-poison"}
+  [1m[36mPotion Load (1.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/potions_controller.rb:27:in `update'
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1303.3ms)
+Started GET "/admin/potions" for ::1 at 2017-03-09 12:00:40 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered potions/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 139ms (Views: 111.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions/love-poison/edit" for ::1 at 2017-03-09 12:00:44 +0900
+Processing by PotionsController#edit as HTML
+  Parameters: {"id"=>"love-poison"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "love-poison"], ["LIMIT", 1]]
+  Rendering potions/edit.html.erb within layouts/application
+  Rendered potions/edit.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 146ms (Views: 132.7ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/admin/potions/love-poison" for ::1 at 2017-03-09 12:00:47 +0900
+Processing by PotionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O1rELcjZtyfQA6M0xMSO+zVufcPW/z+4Ttasg4w6W3x89DnJGp+zZDPBFSCcOofEh1afFs8VtgieJo5IpLHgYQ==", "potion"=>{"pot_name"=>"Love Poison", "pot_slug"=>"love-poison", "pot_desc"=>"An expired Love Potion. It will have the exact opposite effect upon consuming. Whoever drinks it will faint for a couple of minutes, wakes up and the first object/person seen will be hated for life. Make sure there are no mirrors in present", "pot_img"=>"potion8.svg", "pot_creator"=>"Cupid Hater"}, "commit"=>"Save Potion", "id"=>"love-poison"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "love-poison"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPotion Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "potions" WHERE "potions"."pot_slug" = ? AND ("potions"."id" != ?) LIMIT ?[0m  [["pot_slug", "love-poison"], ["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "potions" SET "pot_desc" = ?, "updated_at" = ? WHERE "potions"."id" = ?[0m  [["pot_desc", "An expired Love Potion. It will have the exact opposite effect upon consuming. Whoever drinks it will faint for a couple of minutes, wakes up and the first object/person seen will be hated for life. Make sure there are no mirrors in present"], ["updated_at", 2017-03-09 03:00:47 UTC], ["id", 8]]
+  [1m[35m (105.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/potions
+Completed 302 Found in 207ms (ActiveRecord: 108.0ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-09 12:00:47 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (1.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered potions/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 127ms (Views: 105.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/potions/love-poison/edit" for ::1 at 2017-03-09 12:00:49 +0900
+Processing by PotionsController#edit as HTML
+  Parameters: {"id"=>"love-poison"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "love-poison"], ["LIMIT", 1]]
+  Rendering potions/edit.html.erb within layouts/application
+  Rendered potions/edit.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 124ms (Views: 117.5ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/admin/potions/love-poison" for ::1 at 2017-03-09 12:00:51 +0900
+Processing by PotionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QmhiuE4h4ePSOMvV6O9Ds1MEcdLDWT4ZAiTziNIsC2EFxp9cnGfloDH6fcGwEUqM4TyTB9qzt6nS1NFD+qewfA==", "potion"=>{"pot_name"=>"Love Poison", "pot_slug"=>"love-poison", "pot_desc"=>"An expired Love Potion. It will have the exact opposite effect upon consuming. Whoever drinks it will faint for a couple of minutes, wakes up and the first object/person seen will be hated for life. Make sure there are no mirrors in present", "pot_img"=>"potion8.svg", "pot_creator"=>"Cupid Hater"}, "commit"=>"Save Potion", "id"=>"love-poison"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "love-poison"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPotion Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "potions" WHERE "potions"."pot_slug" = ? AND ("potions"."id" != ?) LIMIT ?[0m  [["pot_slug", "love-poison"], ["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/potions
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-09 12:00:51 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered potions/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 128ms (Views: 108.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions/new" for ::1 at 2017-03-09 12:00:54 +0900
+Processing by PotionsController#new as HTML
+  Rendering potions/new.html.erb within layouts/application
+  Rendered potions/new.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 139ms (Views: 119.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/potions" for ::1 at 2017-03-09 12:00:59 +0900
+Processing by PotionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HsxKaHpXaVmD2ya5D2mzjmefwp+KLOk7NtJKIzLDct3LYCdZ52UkB6IfzmbFOHgHMsKH8fwCaFlXY3D38tDdgQ==", "potion"=>{"pot_name"=>"Test Potion", "pot_slug"=>"", "pot_desc"=>"", "pot_img"=>"potion1.svg", "pot_creator"=>""}, "commit"=>"Save Potion"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPotion Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering potions/new.html.erb within layouts/application
+  Rendered potions/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 130ms (Views: 125.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/potions" for ::1 at 2017-03-09 12:01:18 +0900
+Processing by PotionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kOYms5yM/K2t6afkyfS+XrtaH4j/FPBNx+X8D7/uxhNiaHLm1ZzZin3N+ABrPREqu51lUFjB8972w5+Rt9IhOQ==", "potion"=>{"pot_name"=>"Test Potion", "pot_slug"=>"test-potion", "pot_desc"=>"This is the new test potion, just for fun", "pot_img"=>"potion8.svg", "pot_creator"=>"The Master Tester"}, "commit"=>"Save Potion"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPotion Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "test-potion"], ["LIMIT", 1]]
+  [1m[35mSQL (17.5ms)[0m  [1m[32mINSERT INTO "potions" ("pot_name", "pot_slug", "pot_desc", "pot_img", "pot_creator", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["pot_name", "Test Potion"], ["pot_slug", "test-potion"], ["pot_desc", "This is the new test potion, just for fun"], ["pot_img", "potion8.svg"], ["pot_creator", "The Master Tester"], ["created_at", 2017-03-09 03:01:18 UTC], ["updated_at", 2017-03-09 03:01:18 UTC]]
+  [1m[35m (141.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 166ms (ActiveRecord: 160.1ms)
+
+
+Started GET "/" for ::1 at 2017-03-09 12:01:19 +0900
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 20]]
+  Rendered home/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 130ms (Views: 111.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/potions/test-potion" for ::1 at 2017-03-09 12:01:23 +0900
+Processing by PotionsController#show as HTML
+  Parameters: {"param"=>:pot_slug, "pot_slug"=>"test-potion"}
+  [1m[36mPotion Load (1.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "test-potion"], ["LIMIT", 1]]
+  Rendering potions/show.html.erb within layouts/application
+  Rendered potions/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 123ms (Views: 103.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/potions/new" for ::1 at 2017-03-09 12:01:25 +0900
+Processing by PotionsController#new as HTML
+  Rendering potions/new.html.erb within layouts/application
+  Rendered potions/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 136ms (Views: 119.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-09 12:01:26 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered potions/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 135ms (Views: 115.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions/test-potion/edit" for ::1 at 2017-03-09 12:01:31 +0900
+Processing by PotionsController#edit as HTML
+  Parameters: {"id"=>"test-potion"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "test-potion"], ["LIMIT", 1]]
+  Rendering potions/edit.html.erb within layouts/application
+  Rendered potions/edit.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 136ms (Views: 121.6ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/admin/potions/test-potion" for ::1 at 2017-03-09 12:01:35 +0900
+Processing by PotionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+2qQeZPVOgdKCgRo9HJulSqVjftoVdLv1BHchB8WlhfuOS9nB0JmolyCH+k1nH11iKUJ6UJSGYuRmSfE2X4KiA==", "potion"=>{"pot_name"=>"Test Potion", "pot_slug"=>"test-potion", "pot_desc"=>"This is the new test potion, just for fun fun", "pot_img"=>"potion8.svg", "pot_creator"=>"The Master Tester"}, "commit"=>"Save Potion", "id"=>"test-potion"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "test-potion"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPotion Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "potions" WHERE "potions"."pot_slug" = ? AND ("potions"."id" != ?) LIMIT ?[0m  [["pot_slug", "test-potion"], ["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE "potions" SET "pot_desc" = ?, "updated_at" = ? WHERE "potions"."id" = ?[0m  [["pot_desc", "This is the new test potion, just for fun fun"], ["updated_at", 2017-03-09 03:01:35 UTC], ["id", 10]]
+  [1m[35m (95.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/potions
+Completed 302 Found in 103ms (ActiveRecord: 95.8ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-09 12:01:35 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered potions/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 127ms (Views: 108.9ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/admin/potions/test-potion" for ::1 at 2017-03-09 12:01:38 +0900
+Processing by PotionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VCWZjmZrvkUlz4B2ShiPSnkuLGD7WsODHh/SFm1aM9qmq83bL3ubYvXr35Lo0SA+eelWuFyPwBAvObGIZWbU8A==", "id"=>"test-potion"}
+  [1m[36mPotion Load (0.5ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "test-potion"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "potions" WHERE "potions"."id" = ?[0m  [["id", 10]]
+  [1m[35m (118.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/potions
+Completed 302 Found in 124ms (ActiveRecord: 119.6ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-09 12:01:39 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered potions/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 135ms (Views: 112.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions/haste-potion/edit" for ::1 at 2017-03-09 12:01:44 +0900
+Processing by PotionsController#edit as HTML
+  Parameters: {"id"=>"haste-potion"}
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" WHERE "potions"."pot_slug" = ? LIMIT ?[0m  [["pot_slug", "haste-potion"], ["LIMIT", 1]]
+  Rendering potions/edit.html.erb within layouts/application
+  Rendered potions/edit.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 136ms (Views: 115.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-09 12:01:45 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered potions/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 150ms (Views: 132.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-09 12:01:48 +0900
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  "potions".* FROM "potions" ORDER BY "potions"."created_at" DESC LIMIT ?[0m  [["LIMIT", 20]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 127ms (Views: 108.3ms | ActiveRecord: 0.0ms)
+
+

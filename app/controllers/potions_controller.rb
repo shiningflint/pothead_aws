@@ -10,7 +10,7 @@ class PotionsController < ApplicationController
 	end
 	
 	def edit
-		@potion = Potion.find(params[:id])
+		@potion = Potion.find_by(pot_slug: params[:id])
 	end
 	
 	def create
@@ -23,14 +23,14 @@ class PotionsController < ApplicationController
 	end
 	
 	def update
-		@potion = Potion.find(params[:id])
+		@potion = Potion.find_by(pot_slug: params[:id])
 		@potion.update(potion_params)
 		
 		redirect_to potions_path
 	end
 	
 	def destroy
-		@potion = Potion.find(params[:id])
+		@potion = Potion.find_by(pot_slug: params[:id])
 		@potion.destroy
 		redirect_to potions_path
 	end
