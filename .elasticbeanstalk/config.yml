@@ -1,6 +1,7 @@
 branch-defaults:
   master:
-    environment: null
+    environment: pothead-aws-dev
+    group_suffix: null
 global:
   application_name: pothead_aws
   branch: null
