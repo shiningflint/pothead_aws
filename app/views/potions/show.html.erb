@@ -1,0 +1,22 @@
+<header>
+	<div class="headwrap">
+		<h1 class="headh1"><span><%= link_to "Welcome to", root_url %></span><br><span><%= link_to "Pothead's Potion Shop", root_url %></span></h1>
+		<%= link_to 'Create New Potion', new_potion_path, class: 'addnew' %>
+	</div>
+</header>
+<div class="main">
+	<div class="body-wrap">
+		<div class="tl-wrap">
+			<h1 class="tl-title"><%= @potion.pot_name %></h1>
+			<div class="npe-wrap">
+				<p>Created by: <%= @potion.pot_creator %></p>
+				<p class="pot-img"><%= image_tag 'potions/' + @potion.pot_img %></p>
+				<p><%= @potion.pot_desc %></p>
+			</div>
+		</div>
+		<div class="center bth"><%= link_to 'Home', root_url, class: 'btn btn_sh' %></div>
+	</div>
+</div>
+<footer>
+	<p class="foot-txt">Keep it high people</p>
+</footer>

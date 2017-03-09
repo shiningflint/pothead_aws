@@ -1,0 +1,29 @@
+<div class="body-wrap">
+	<p class="tl-new tl-new_tfp"><%= link_to 'To front page', root_url %></p>
+	<div class="tl-wrap">
+		<h1 class="tl-title">Potion List Admin Panel</h1>
+		<p class="tl-new"><%= link_to 'Add new potion', new_potion_path %></p>
+		<div class="tl-tbl">
+			<table class="tl">
+				<tr class="tl-to">
+					<th class="tl-th">Potion Name</th>
+					<th class="tl-th">Potion Description</th>
+					<th class="tl-th">Creator</th>
+					<th class="tl-th">Action</th>
+				</tr>
+				<% @potions.each do |potion| %>
+				<tr>
+					<td class="tl-td"><%= link_to potion.pot_name, edit_potion_path(potion) %></td>
+					<td class="tl-td"><%= potion.pot_desc %></td>
+					<td class="tl-td"><%= potion.pot_creator %></td>
+					<td class="tl-td">
+						<ul class="tl-ul">
+							<li><%= link_to(image_tag('edit.png'), edit_potion_path(potion)) %></li><li><%= link_to(image_tag('delete.png'), potion_path(potion), method: :delete, data: {confirm: 'Break, scrap, and throw away the poor potion?'}) %></li>
+						</ul>
+					</td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

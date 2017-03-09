@@ -1,0 +1,62 @@
+<div class="body-wrap">
+	<div class="tl-wrap">
+		<h1 class="tl-title">Add New Potion to Display</h1>
+		<p class="tl-new"><%= link_to 'Potion admin panel', potions_path %></p>
+		<% if @potion.errors.any? %>
+		<div class="erm">
+			<p class="erm-title">There are errors</p>
+			<ul class="erm-ul">
+				<% @potion.errors.full_messages.each do |msg| %>
+				<li class="erm-item"><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
+		<div class="npe-wrap">
+			<%= form_for :potion, url: potions_path do |f| %>
+			<div class="pf">
+				<p class="pf-input">
+				<%= f.label :pot_name, 'Potion Name' %><br>
+				<%= f.text_field :pot_name, placeholder: "e.g. 'High Potion'", autofocus: true, id: :potname %>
+				</p>
+
+				<p class="pf-input">
+				<%= f.label :pot_slug, 'Potion Slug (lowercase with hyphens)' %><br>
+				<%= f.text_field :pot_slug, placeholder: "e.g. 'high-potion'" %>
+				</p>
+
+				<p class="pf-input pf-input_fw">
+				<%= f.label :pot_desc, 'Describe your potion' %><br>
+				<%= f.text_area :pot_desc, size: '30x8' %>
+				</p>
+
+				<p class="pf-input pf-input_fw">
+				<span class="pf-raditem"><%= f.radio_button :pot_img, 'potion1.svg', checked: true %>
+				<%= f.label(:pot_img, image_tag('potions/potion1.svg'), value: 'potion1.svg') %></span>
+				<span class="pf-raditem"><%= f.radio_button :pot_img, 'potion2.svg' %>
+				<%= f.label(:pot_img, image_tag('potions/potion2.svg'), value: 'potion2.svg') %></span>
+				<span class="pf-raditem"><%= f.radio_button :pot_img, 'potion3.svg' %>
+				<%= f.label(:pot_img, image_tag('potions/potion3.svg'), value: 'potion3.svg') %></span>
+				<span class="pf-raditem"><%= f.radio_button :pot_img, 'potion4.svg' %>
+				<%= f.label(:pot_img, image_tag('potions/potion4.svg'), value: 'potion4.svg') %></span>
+				<span class="pf-raditem"><%= f.radio_button :pot_img, 'potion5.svg' %>
+				<%= f.label(:pot_img, image_tag('potions/potion5.svg'), value: 'potion5.svg') %></span>
+				<span class="pf-raditem"><%= f.radio_button :pot_img, 'potion6.svg' %>
+				<%= f.label(:pot_img, image_tag('potions/potion6.svg'), value: 'potion6.svg') %></span>
+				<span class="pf-raditem"><%= f.radio_button :pot_img, 'potion7.svg' %>
+				<%= f.label(:pot_img, image_tag('potions/potion7.svg'), value: 'potion7.svg') %></span>
+				<span class="pf-raditem"><%= f.radio_button :pot_img, 'potion8.svg' %>
+				<%= f.label(:pot_img, image_tag('potions/potion8.svg'), value: 'potion8.svg') %></span>
+				</p>
+
+				<p class="pf-input">
+				<%= f.label :pot_creator, "The Creator of This Potion" %><br>
+				<%= f.text_field :pot_creator, placeholder: "e.g. 'The High Guy'" %>
+				</p>
+
+				<p class="pf-sbmt pf-input_fw"><%= f.submit %></p>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>

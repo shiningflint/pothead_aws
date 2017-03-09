@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pot_name: MyString
+  pot_slug: MyString
+  pot_desc: MyText
+  pot_img: MyString
+  pot_creator: MyString
+
+two:
+  pot_name: MyString
+  pot_slug: MyString
+  pot_desc: MyText
+  pot_img: MyString
+  pot_creator: MyString

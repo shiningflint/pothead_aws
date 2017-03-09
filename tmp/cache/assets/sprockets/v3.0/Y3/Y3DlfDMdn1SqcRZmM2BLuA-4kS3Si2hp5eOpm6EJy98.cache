@@ -1,0 +1,5 @@
+I">(function() {
+  console.log("bananas!");
+
+}).call(this);
+:ET

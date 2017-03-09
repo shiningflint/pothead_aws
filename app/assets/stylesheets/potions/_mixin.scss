@@ -1,0 +1,21 @@
+@mixin flex() {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+@mixin justify-content($just) {
+	-webkit-justify-content: $just;
+	justify-content: $just;
+}
+
+@mixin flex-wrap($wrap) {
+	-webkit-flex-wrap: $wrap;
+	flex-wrap: $wrap;
+}
+
+@mixin shadow($sh) {
+-webkit-box-shadow: $sh;
+-moz-box-shadow: $sh;
+box-shadow: $sh;
+}

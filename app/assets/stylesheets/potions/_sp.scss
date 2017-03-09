@@ -1,0 +1,11 @@
+@media (max-width: 749px) {
+	.tl,
+	.tl > tbody,
+	.tl tr,
+	.tl td {display: block;}
+	.tl tr.tl-to,
+	.tl tr>td:nth-child(2) {display: none;}
+	.tl tr {margin-bottom: 4%;}
+	
+	.body-wrap {height: auto;}
+}
