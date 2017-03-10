@@ -12,7 +12,7 @@ gem 'rails', '~> 5.0.1'
 #gem 'sqlite3'
 
 # Use MySQL for Active Record
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
