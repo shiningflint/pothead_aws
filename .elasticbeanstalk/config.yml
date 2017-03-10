@@ -1,0 +1,19 @@
+branch-defaults:
+  master:
+    environment: pothead-aws-dev
+environment-defaults:
+  pothead-aws-dev:
+    branch: null
+    repository: null
+global:
+  application_name: pothead_aws
+  default_ec2_keyname: pothead-keypair
+  default_platform: arn:aws:elasticbeanstalk:ap-southeast-1::platform/Puma with Ruby
+    2.3 running on 64bit Amazon Linux/2.3.2
+  default_region: ap-southeast-1
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: eb-cli
+  sc: git
+  workspace_type: Application
