@@ -6787,3 +6787,74 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 127ms (Views: 108.3ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7591514841385720455', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7591514841385720455')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `potions`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'potions'[0m
+Started GET "/" for ::1 at 2017-03-10 11:48:28 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  `potions`.* FROM `potions` ORDER BY `potions`.`created_at` DESC LIMIT 20[0m
+  Rendered home/index.html.erb within layouts/application (1326.3ms)
+Completed 200 OK in 2297ms (Views: 2210.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-10 11:48:54 +0900
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mPotion Load (1.0ms)[0m  [1m[34mSELECT  `potions`.* FROM `potions` ORDER BY `potions`.`created_at` DESC LIMIT 20[0m
+  Rendered home/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 127ms (Views: 107.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/potions/new" for ::1 at 2017-03-10 11:48:56 +0900
+Processing by PotionsController#new as HTML
+  Rendering potions/new.html.erb within layouts/application
+  Rendered potions/new.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 249ms (Views: 162.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-10 11:48:57 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (1.0ms)[0m  [1m[34mSELECT  `potions`.* FROM `potions` ORDER BY `potions`.`created_at` DESC LIMIT 1000[0m
+  Rendered potions/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 201ms (Views: 137.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/potions/hp-potion/edit" for ::1 at 2017-03-10 11:48:59 +0900
+Processing by PotionsController#edit as HTML
+  Parameters: {"id"=>"hp-potion"}
+  [1m[36mPotion Load (1.0ms)[0m  [1m[34mSELECT  `potions`.* FROM `potions` WHERE `potions`.`pot_slug` = 'hp-potion' LIMIT 1[0m
+  Rendering potions/edit.html.erb within layouts/application
+  Rendered potions/edit.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 259ms (Views: 154.1ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/admin/potions/hp-potion" for ::1 at 2017-03-10 11:49:15 +0900
+Processing by PotionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7LtWS6CId6D8zjL4XPLNc/eI9iIb0coOAqcyYtOGOCR/casvZOfH4myZRA1RboH8i7xG6WZAVFlLFJJe4Brc7Q==", "potion"=>{"pot_name"=>"HP Potion", "pot_slug"=>"hp-potion", "pot_desc"=>"Generic health restoration potion produced by Giga Potion Factory", "pot_img"=>"potion1.svg", "pot_creator"=>"Giga Potion Factory"}, "commit"=>"Save Potion", "id"=>"hp-potion"}
+  [1m[36mPotion Load (0.5ms)[0m  [1m[34mSELECT  `potions`.* FROM `potions` WHERE `potions`.`pot_slug` = 'hp-potion' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPotion Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `potions` WHERE `potions`.`pot_slug` = BINARY 'hp-potion' AND (`potions`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (50.1ms)[0m  [1m[33mUPDATE `potions` SET `pot_desc` = 'Generic health restoration potion produced by Giga Potion Factory', `updated_at` = '2017-03-10 02:49:15' WHERE `potions`.`id` = 1[0m
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/potions
+Completed 302 Found in 116ms (ActiveRecord: 87.8ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-10 11:49:15 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  `potions`.* FROM `potions` ORDER BY `potions`.`created_at` DESC LIMIT 1000[0m
+  Rendered potions/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 141ms (Views: 118.1ms | ActiveRecord: 0.0ms)
+
+

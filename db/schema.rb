@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20170302045431) do
 
-  create_table "potions", force: :cascade do |t|
+  create_table "potions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "pot_name"
     t.string   "pot_slug"
-    t.text     "pot_desc"
+    t.text     "pot_desc",    limit: 65535
     t.string   "pot_img"
     t.string   "pot_creator"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end
