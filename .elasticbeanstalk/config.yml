@@ -1,9 +1,8 @@
 branch-defaults:
   master:
-    environment: pothead-aws-dev
-    group_suffix: null
+    environment: null
 global:
-  application_name: pothead_aws
+  application_name: pothead_aws2
   branch: null
   default_ec2_keyname: pothead-keypair
   default_platform: Ruby 2.3 (Puma)
