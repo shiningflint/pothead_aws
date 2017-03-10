@@ -6858,3 +6858,35 @@ Processing by PotionsController#index as HTML
 Completed 200 OK in 141ms (Views: 118.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-03-10 16:18:24 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  `potions`.* FROM `potions` ORDER BY `potions`.`created_at` DESC LIMIT 20[0m
+  Rendered home/index.html.erb within layouts/application (729.0ms)
+Completed 200 OK in 1642ms (Views: 1542.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-10 16:18:48 +0900
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  `potions`.* FROM `potions` ORDER BY `potions`.`created_at` DESC LIMIT 20[0m
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 110ms (Views: 101.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions/new" for ::1 at 2017-03-10 16:18:49 +0900
+Processing by PotionsController#new as HTML
+  Rendering potions/new.html.erb within layouts/application
+  Rendered potions/new.html.erb within layouts/application (143.8ms)
+Completed 200 OK in 313ms (Views: 271.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/potions" for ::1 at 2017-03-10 16:18:51 +0900
+Processing by PotionsController#index as HTML
+  Rendering potions/index.html.erb within layouts/application
+  [1m[36mPotion Load (0.0ms)[0m  [1m[34mSELECT  `potions`.* FROM `potions` ORDER BY `potions`.`created_at` DESC LIMIT 1000[0m
+  Rendered potions/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 134ms (Views: 118.0ms | ActiveRecord: 0.0ms)
+
+
